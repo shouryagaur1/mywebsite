@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SHOURYA GAUR — 3D Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="projects.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @keyframes rotateCard {
+        0% {
+          transform: rotate(-10deg);
+        }
+        50% {
+          transform: rotate(10deg);
+        }
+        100% {
+          transform: rotate(-10deg);
+        }
+      }
+
+      @keyframes glowPulse {
+        0% {
+          box-shadow: 0 0 5px rgba(255, 255, 255, 0.2),
+            0 0 10px rgba(255, 255, 255, 0.2), 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+        50% {
+          box-shadow: 0 0 20px rgba(255, 255, 255, 0.4),
+            0 0 30px rgba(255, 255, 255, 0.4), 0 0 40px rgba(255, 255, 255, 0.4);
+        }
+        100% {
+          box-shadow: 0 0 5px rgba(255, 255, 255, 0.2),
+            0 0 10px rgba(255, 255, 255, 0.2), 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+      }
+
+      .poly-card {
+        animation: rotateCard 4s ease-in-out infinite,
+          glowPulse 3s ease-in-out infinite;
+        transform-origin: center center;
+        transition: transform 0.3s ease;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        border-radius: 8px;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        width: 80px;
+        height: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .poly-card:hover {
+        animation-play-state: paused;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+          0 0 40px rgba(255, 255, 255, 0.6), 0 0 50px rgba(255, 255, 255, 0.6);
+      }
+
+      .poly-card img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        margin-bottom: 5px;
+      }
+
+      .poly-card span {
+        color: white;
+        font-size: 12px;
+        display: block;
+        text-align: center;
+      }
+
+      .skills-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .projects-section {
+        background: #23283e;
+        color: #fff;
+        padding: 60px 0 40px 0;
+        border-radius: 20px;
+        margin: 40px 0;
+        text-align: center;
+      }
+      .projects-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      .projects-subtitle {
+        color: #b0b3c6;
+        margin-bottom: 32px;
+      }
+      .projects-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto 32px auto;
+        padding: 20px;
+        justify-content: center;
+        align-items: stretch;
+      }
+      .project-card {
+        background: #181c2f;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.15);
+        padding: 15px;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s, box-shadow 0.2s;
+        position: relative;
+        width: calc(33.333% - 20px);
+        min-width: 300px;
+        max-width: 350px;
+        height: 300px;
+        flex-shrink: 0;
+      }
+      .project-card:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 8px 32px 0 rgba(255, 215, 0, 0.3),
+          0 12px 48px 0 rgba(255, 215, 0, 0.2),
+          0 16px 64px 0 rgba(255, 215, 0, 0.1);
+      }
+      .project-img {
+        width: 100%;
+        height: 140px;
+        object-fit: contain;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        background-color: #181c2f;
+      }
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 10px;
+      }
+      .project-tags span {
+        background: #3a3f5a;
+        color: #b0b3c6;
+        font-size: 0.75rem;
+        padding: 3px 10px;
+        border-radius: 8px;
+        font-weight: 500;
+      }
+      .project-card h3 {
+        font-size: 1.1rem;
+        margin: 6px 0 4px 0;
+        color: #fff;
+      }
+      .project-card p {
+        font-size: 0.9rem;
+        color: #b0b3c6;
+        margin-bottom: 12px;
+        line-height: 1.4;
+        flex-grow: 1;
+      }
+      .project-links {
+        display: flex;
+        gap: 16px;
+        margin-top: auto;
+      }
+      .project-link {
+        color: #a78bfa;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.98rem;
+        transition: color 0.2s;
+      }
+      .project-link:hover {
+        color: #fff;
+        text-decoration: underline;
+      }
+      .projects-btn-container {
+        margin-top: 18px;
+      }
+      .projects-btn {
+        background: #a78bfa;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 32px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .projects-btn:hover {
+        background: #7c3aed;
+      }
+      .earth-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: linear-gradient(to bottom, #101020, #000000);
+        min-height: 100vh;
+        padding-right: 0vw;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 
+          0 0 50px rgba(0, 0, 0, 0.5),
+          0 0 100px rgba(0, 0, 0, 0.3),
+          inset 0 0 50px rgba(0, 0, 0, 0.5);
+      }
+      @keyframes twinkle {
+        0% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.3;
+        }
+      }
+
+      .star {
+        position: absolute;
+        background-color: white;
+        border-radius: 50%;
+        animation: twinkle 3s infinite;
+      }
+
+      .stars-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+      .contact-section {
+        background: #101020;
+        border-radius: 18px;
+        box-shadow: 
+          0 0 20px rgba(90, 180, 255, 0.4),
+          0 0 40px rgba(170, 0, 255, 0.25),
+          0 0 60px rgba(0, 255, 255, 0.18),
+          0 0 80px rgba(255, 0, 128, 0.15),
+          inset 0 0 20px rgba(255, 255, 255, 0.1);
+        padding: 4px 6px 4px 6px;
+        width: 600px;
+        margin-left: 40px;
+        z-index: 2;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        backdrop-filter: blur(10px);
+      }
+      .contact-label {
+        color: #b0b3c6;
+        font-size: 0.95rem;
+        letter-spacing: 1px;
+        margin-bottom: 2px;
+      }
+      .contact-title {
+        font-size: 2.3rem;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      .contact-dot {
+        color: #a78bfa;
+      }
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+      }
+      .contact-form label {
+        font-size: 1rem;
+        margin-top: 8px;
+        margin-bottom: 2px;
+        color: #b0b3c6;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        background: #181c2f;
+        border: none;
+        border-radius: 8px;
+        padding: 12px 14px;
+        color: #fff;
+        font-size: 1rem;
+        margin-bottom: 8px;
+        outline: none;
+        resize: none;
+      }
+      .contact-form textarea {
+        min-height: 18px;
+        max-width: 100%;
+      }
+      .contact-send-btn {
+        background: none;
+        border: 2px solid #a78bfa;
+        color: #fff;
+        border-radius: 8px;
+        padding: 8px 24px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 8px;
+        transition: background 0.2s, color 0.2s;
+      }
+      .contact-send-btn:hover {
+        background: #a78bfa;
+        color: #181c2f;
+      }
+      .contact-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .contact-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #181c2f;
+        border-radius: 8px;
+        padding: 10px 14px;
+        color: #b0b3c6;
+        font-size: 1rem;
+      }
+      .fell-english {
+        font-family: "IM Fell English SC", serif;
+        font-size: 3.5rem; /* Adjust as needed */
+        color: #f5f5f5; /* Or your preferred color */
+        text-align: center;
+        margin: 30px 0;
+      }
+      .project-card1 {
+        background: #181c2f;
+        border-radius: 50%;
+        box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.15);
+        padding: 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s, box-shadow 0.2s;
+        position: relative;
+        width: 140px;
+        height: 140px;
+        margin: 0 20px;
+        box-sizing: border-box;
+        overflow: hidden;
+        flex-shrink: 0;
+        animation: rotateCard 4s ease-in-out infinite;
+      }
+      .project-card1:hover {
+        animation-play-state: paused;
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 8px 32px 0 rgba(255, 215, 0, 0.3),
+          0 12px 48px 0 rgba(255, 215, 0, 0.2),
+          0 16px 64px 0 rgba(255, 215, 0, 0.1);
+      }
+      .project-card1 .project-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        background-color: #181c2f;
+      }
+      .project-card1 .project-links {
+        position: absolute;
+        bottom: 12px;
+        left: 0;
+        right: 0;
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        z-index: 2;
+      }
+      .certification-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto 32px auto;
+        padding: 20px;
+        justify-content: center;
+        align-items: stretch;
+      }
+
+      .certification-card {
+        position: relative;
+        width: calc(33.333% - 20px);
+        min-width: 280px;
+        max-width: 350px;
+        height: 280px;
+        flex-shrink: 0;
+        cursor: pointer;
+        border-radius: 16px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .certification-card:active {
+        transform: translateY(-20px);
+        box-shadow: 0 8px 32px 0 rgba(255, 215, 0, 0.3),
+                    0 12px 48px 0 rgba(255, 215, 0, 0.2),
+                    0 16px 64px 0 rgba(255, 215, 0, 0.1);
+      }
+
+      .cert-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+        transition: transform 0.3s ease;
+      }
+
+      .certification-card:hover .cert-img {
+        transform: scale(1.05);
+      }
+
+      .cert-links {
+        position: absolute;
+        bottom: 15px;
+        left: 0;
+        right: 0;
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        z-index: 2;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .certification-card:hover .cert-links {
+        opacity: 1;
+      }
+
+      .certification-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent 70%, rgba(0, 0, 0, 0.7));
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 16px;
+      }
+
+      .certification-card:hover::after {
+        opacity: 1;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 40px;
+        background: rgba(20, 20, 40, 0.95);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .nav-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+      }
+      .linkedin-logo {
+        transition: transform 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .linkedin-logo:hover {
+        transform: scale(1.1);
+      }
+      .navbar nav {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+      }
+      .navbar .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        z-index: 200;
+      }
+      .navbar .hamburger span {
+        height: 4px;
+        width: 100%;
+        background: #fff;
+        margin: 4px 0;
+        border-radius: 2px;
+        transition: 0.3s;
+      }
+      @media (max-width: 768px) {
+        .navbar nav {
+          position: absolute;
+          top: 60px;
+          right: 20px;
+          background: #23283e;
+          flex-direction: column;
+          gap: 18px;
+          padding: 18px 24px;
+          border-radius: 12px;
+          box-shadow: 0 4px 24px 0 rgba(0,0,0,0.2);
+          display: none;
+        }
+        .navbar nav.active {
+          display: flex;
+        }
+        .navbar .hamburger {
+          display: flex !important;
+        }
+      }
+    </style>
+    <style>
+      /* Responsive Design */
+      @media (max-width: 1024px) {
+        .projects-grid,
+        .certification-cards {
+          gap: 18px;
+        }
+        .project-card,
+        .project-card1,
+        .certification-card {
+          min-width: 220px;
+          max-width: 100%;
+          width: 100%;
+        }
+        .contact-section {
+          width: 90vw;
+          margin-left: 0;
+        }
+      }
+      @media (max-width: 768px) {
+        .overview-cards,
+        .skills-cards,
+        .projects-grid,
+        .certification-cards {
+          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+        }
+        .project-card,
+        .project-card1,
+        .certification-card {
+          width: 90vw;
+          min-width: unset;
+          max-width: 400px;
+          height: auto;
+        }
+        .overview-section,
+        .skills-section {
+          padding: 16px;
+          margin: 10px;
+        }
+        .contact-section {
+          width: 98vw;
+          padding: 10px;
+        }
+        .earth-section {
+          flex-direction: column;
+          align-items: center;
+          padding: 0;
+        }
+      }
+      @media (max-width: 480px) {
+        .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 10px 5px;
+        }
+        .navbar nav {
+          flex-direction: column;
+          gap: 8px;
+        }
+        .fell-english {
+          font-size: 2rem;
+        }
+        .overview-title,
+        .projects-title,
+        .contact-title {
+          font-size: 1.3rem;
+        }
+        .overview-section,
+        .skills-section {
+          padding: 8px;
+          margin: 4px;
+        }
+        .project-card,
+        .project-card1,
+        .certification-card {
+          width: 98vw;
+          max-width: 98vw;
+          min-width: unset;
+          height: auto;
+        }
+        .contact-section {
+          width: 100vw;
+          padding: 4px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="starfield"></canvas>
+    <header class="navbar">
+      <div class="logo">
+        <img
+          src="../assets/logo.png"
+          alt="Logo"
+          height="32"
+          style="vertical-align: middle"
+        />
+        <span>Shourya Gaur</span>
+      </div>
+      <div class="nav-center">
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/shourya-gaur-37787b1b9/" target="_blank" class="social-icon">
+            <img src="../assets/linkedin.png" alt="LinkedIn" class="icon-img">
+          </a>
+          <a href="https://github.com/shourya914" target="_blank" class="social-icon">
+            <img src="../assets/github.png" alt="GitHub" class="icon-img">
+          </a>
+          <a href="mailto:shouryagaur1@gmail.com" class="social-icon">
+            <img src="../assets/mail.png" alt="Email" class="icon-img">
+          </a>
+          <a href="https://wa.me/919354145004" target="_blank" class="social-icon">
+            <img src="../assets/whatsapp.png" alt="WhatsApp" class="icon-img">
+          </a>
+          <a href="../assets/full-satck resume (2).pdf" download class="social-icon">
+            <img src="../assets/download.png" alt="Download Resume" class="icon-img">
+          </a>
+        </div>
+      </div>
+      <div class="hamburger" onclick="toggleNavbar()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav>
+        <a href="#about" onclick="scrollToAbout(event)">About</a>
+        <a href="#work" onclick="scrollToWork(event)">Work</a>
+        <a href="#achievement" onclick="scrollToAchievement(event)">Achievement</a>
+        <a href="#contact" onclick="scrollToContact(event)">Contact</a>
+      </nav>
+    </header>
+    <section class="hero">
+      <div class="hero-line">
+        <div class="siri-blink"></div>
+      </div>
+      <div class="hero-content">
+        <h1>Hi,<span style="color: gold;">I'm</span> <span class="highlight"></span></h1>
+        <p>I develop 3D visuals, user<br />interfaces and web applications</p>
+        <!-- Social Icons and Buttons Start -->
+        <div
+          class="hero-social-buttons"
+          style="
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+          "
+        >
+          <!-- Removed icon-orbit floating icons -->
+          <div
+            class="hero-buttons"
+            style="display: flex; gap: 24px; margin-top: 16px"
+          >
+            <!-- Removed static mail and download icons -->
+          </div>
+        </div>
+        <!-- Social Icons and Buttons End -->
+      </div>
+      <pre
+        class="hero-code"
+        style="
+          perspective: 1000px;
+          transform-style: preserve-3d;
+          animation: float 6s ease-in-out infinite;
+        "
+      ><code style="transform: rotateX(10deg) rotateY(5deg);"><span class="code-comment">// Example JavaScript code</span>
+<span class="code-keyword">function</span> <span class="code-func">greet</span>(<span class="code-var">name</span>) {
+  <span class="code-keyword">console</span>.log(<span class="code-string">'Hello, '</span> + <span class="code-var">name</span> + <span class="code-string">'!'</span>);
+}
+
+<span class="code-keyword">const</span> <span class="code-var">user</span> = <span class="code-string">'Shourya'</span>;
+<span class="code-func">greet</span>(<span class="code-var">user</span>);
+
+<span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-var">i</span> = 0; <span class="code-var">i</span> < 3; <span class="code-var">i</span>++) {
+  <span class="code-keyword">console</span>.log(<span class="code-var">i</span>);
+}
+
+<span class="code-comment">// More code</span>
+<span class="code-keyword">let</span> <span class="code-var">sum</span> = 0;
+<span class="code-keyword">for</span> (<span class="code-keyword">let</span> <span class="code-var">j</span> = 1; <span class="code-var">j</span> <= 5; <span class="code-var">j</span>++) {
+  <span class="code-var">sum</span> += <span class="code-var">j</span>;
+}
+<span class="code-keyword">console</span>.log(<span class="code-string">'Sum:'</span>, <span class="code-var">sum</span>);</code></pre>
+    </section>
+    <section
+      class="overview-section"
+      id="about"
+      style="
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        padding: 30px;
+        border-radius: 15px;
+        margin: 20px;
+      "
+    >
+      <div class="overview-intro">
+        <span class="overview-label" style="color: gold;">INTRODUCTION</span>
+        <h2 class="overview-title">
+          Overview<span class="overview-dot">....</span>
+        </h2>
+        <p class="overview-desc">
+          I'm a skilled software developer with experience in TypeScript and
+          JavaScript, and expertise in frameworks like React, Node.js, and
+          Three.js. I'm a quick learner and collaborate closely with clients to
+          create efficient, scalable, and user-friendly solutions that solve
+          real-world problems. Let's work together to bring your ideas to life!
+        </p>
+      </div>
+      <div class="overview-cards">
+        <div class="overview-card">
+          <img
+            src="../assets/web.png"
+            alt="Web Developer"
+            class="overview-icon"
+          />
+          <h3>Web Developer</h3>
+        </div>
+        <div class="overview-card">
+          <img
+            src="../assets/creator.png"
+            alt="React Native Developer"
+            class="overview-icon"
+          />
+          <h3>React Native Developer</h3>
+        </div>
+        <div class="overview-card">
+          <img
+            src="../assets/backend.png"
+            alt="Backend Developer"
+            class="overview-icon"
+          />
+          <h3>Backend Developer</h3>
+        </div>
+        <div class="overview-card">
+          <img
+            src="../assets/ai.jpg"
+            alt="Artificial intelligence"
+            class="overview-icon"
+          />
+          <h3>Artificial Intelligence</h3>
+        </div>
+      </div>
+    </section>
+    <section
+      class="skills-section"
+      style="
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+        padding: 30px;
+        border-radius: 15px;
+        margin: 20px;
+        margin-top: 0;
+        position: relative;
+        z-index: 1;
+      "
+    >
+      <div class="skills-intro">
+        <span class="overview-label" style="color: gold;">SKILLS</span>
+        <h2 class="overview-title">
+          My Tech Stack<span class="overview-dot">....</span>
+        </h2>
+        <p class="overview-desc">
+          Here are some of the technologies and tools I work with:
+        </p>
+      </div>
+      <div class="skills-cards">
+        <div class="poly-card">
+          <img src="../assets/tech/javascript.png" alt="JavaScript" />
+          <span>JavaScript</span>
+        </div>
+        <div class="poly-card">
+          <img src="../assets/tech/typescript.png" alt="TypeScript" />
+          <span>TypeScript</span>
+        </div>
+        <div class="poly-card">
+          <img src="../assets/tech/reactjs.png" alt="ReactJS" />
+          <span>ReactJS</span>
+        </div>
+        <div class="poly-card">
+          <img src="../assets/tech/nodejs.png" alt="NodeJS" />
+          <span>NodeJS</span>
+        </div>
+        <div class="poly-card">
+          <img src="../assets/tech/html.png" alt="HTML5" />
+          <span>HTML5</span>
+        </div>
+        <div class="poly-card">
+          <img src="../assets/tech/css.png" alt="CSS3" />
+          <span>CSS3</span>
+        </div>
+        <div class="poly-card">
+          <img src="../assets/tech/tailwind.png" alt="Tailwind" />
+          <span>Tailwind</span>
+        </div>
+        <div class="poly-card">
+          <img src="../assets/tech/redux.png" alt="Redux" />
+          <span>Redux</span>
+        </div>
+        <div class="poly-card">
+          <img src="../assets/tech/threejs.svg" alt="Three.js" />
+          <span>Three.js</span>
+        </div>
+        <div class="poly-card">
+          <img src="../assets/tech/mongodb.png" alt="MongoDB" />
+          <span>MongoDB</span>
+        </div>
+        <div class="poly-card">
+          <img src="../assets/tech/docker.png" alt="Docker" />
+          <span>Docker</span>
+        </div>
+        <div class="poly-card">
+          <img src="../assets/tech/git.png" alt="Git" />
+          <span>Git</span>
+        </div>
+        <div class="poly-card">
+          <img src="../assets/tech/figma.png" alt="Figma" />
+          <span>Figma</span>
+        </div>
+      </div>
+    </section>
+    <!-- My Projects Section -->
+    <section class="projects-section" id="work">
+      <h2 class="projects-title">My Projects</h2>
+      <p class="projects-subtitle" style="color: gold;">
+        A showcase of my technical projects and applications.
+      </p>
+      <div class="projects-grid">
+        <!-- Project Card 1 -->
+        <div class="project-card">
+          <img
+            src="../assets/flip.png"
+            alt="Edu Consultancy System"
+            class="project-img"
+          />
+          <div class="project-tags">
+            <span>React</span><span>Node.js</span><span>MongoDB</span
+            ><span>Express</span>
+          </div>
+          <h3>Edu Consultancy System</h3>
+          <p>
+            Educational consultancy platform built for Infosys Springboard
+            internship. Connects students with educational advisors.
+          </p>
+          <div class="project-links">
+            <a
+              href="https://github.com/shourya914/Flipkart_clone"
+              class="project-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >code</span
+              ></a
+            >
+            <a
+              href="https://shourya914.github.io/Flipkart_clone/"
+              class="project-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >link</span
+              ></a
+            >
+          </div>
+        </div>
+        <!-- Project Card 2 -->
+        <div class="project-card">
+          <img
+            src="../assets/weather.png"
+            alt="Technical Term Simplifier"
+            class="project-img"
+          />
+          <div class="project-tags">
+            <span>MongoDB</span><span>Express</span><span>React</span
+            ><span>Node.js</span>
+          </div>
+          <h3>Technical Term Simplifier</h3>
+          <p>
+            MERN stack application that simplifies complex technical jargon into
+            easy-to-understand definitions.
+          </p>
+          <div class="project-links">
+            <a
+              href="https://github.com/shourya914/Weather_App_first"
+              class="project-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >code</span
+              ></a
+            >
+            <a
+              href="https://shourya914.github.io/Weather_App_first/"
+              class="project-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >link</span
+              ></a
+            >
+          </div>
+        </div>
+        <!-- Project Card 3 -->
+        <div class="project-card">
+          <img
+            src="../assets/shifra.png"
+            alt="Study Planner App"
+            class="project-img"
+          />
+          <div class="project-tags">
+            <span>Kotlin</span><span>Android SDK</span><span>SQLite</span
+            ><span>Material Design</span>
+          </div>
+          <h3>Study Planner App</h3>
+          <p>
+            Android application to help students organize their study schedules,
+            set goals, and track progress.
+          </p>
+          <div class="project-links">
+            <a
+              href="https://github.com/shourya914/shifra-assistant"
+              class="project-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >code</span
+              ></a
+            >
+            <a
+              href="https://shourya914.github.io/shifra-assistant/"
+              class="project-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >link</span
+              ></a
+            >
+          </div>
+        </div>
+        <!-- Project Card 4 -->
+        <!--
+        <div class="project-card">
+          <img
+            src="assets/projects/leetcode-tracker.jpg"
+            alt="LeetCode Progress Tracker"
+            class="project-img"
+          />
+          <div class="project-tags">
+            <span>DSA</span><span>Algorithms</span><span>GitHub</span>
+          </div>
+          <h3>LeetCode Progress Tracker</h3>
+          <p>
+            Helps track progress on LeetCode problems, categorized by difficulty
+            and patterns.
+          </p>
+          <div class="project-links">
+            <a href="#" class="project-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >code</span
+              ></a
+            >
+            <a href="#" class="project-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >link</span
+              ></a
+            >
+          </div>
+        </div>
+        -->
+        <!-- Project Card 5 -->
+        <!--
+        <div class="project-card">
+          <img
+            src="assets/projects/interview-hub.jpg"
+            alt="Interview Prep Resource Hub"
+            class="project-img"
+          />
+          <div class="project-tags">
+            <span>Firebase</span><span>JavaScript</span><span>CSS</span>
+          </div>
+          <h3>Interview Prep Resource Hub</h3>
+          <p>
+            Centralized platform for interview preparation materials, coding
+            challenges, and industry insights.
+          </p>
+          <div class="project-links">
+            <a href="#" class="project-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >code</span
+              ></a
+            >
+            <a href="#" class="project-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >link</span
+              ></a
+            >
+          </div>
+        </div>
+        -->
+        <!-- Project Card 6 -->
+        <!--
+        <div class="project-card">
+          <img
+            src="assets/projects/smart-cane.jpg"
+            alt="Smart Walking Cane"
+            class="project-img"
+          />
+          <div class="project-tags">
+            <span>IoT</span><span>Arduino</span><span>Sensors</span
+            ><span>C++</span>
+          </div>
+          <h3>Smart Walking Cane</h3>
+          <p>
+            IoT prototype for a smart walking cane that provides navigation
+            assistance and obstacle detection.
+          </p>
+          <div class="project-links">
+            <a href="#" class="project-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >code</span
+              ></a
+            >
+            <a href="#" class="project-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >link</span
+              ></a
+            >
+          </div>
+        </div>
+        -->
+      </div>
+      <div class="projects-btn-container">
+        <a
+          href="https://github.com/shourya914"
+          target="_blank"
+          style="text-decoration: none"
+        >
+          <button class="projects-btn" id="viewMoreBtn">
+            View More Projects
+          </button>
+        </a>
+      </div>
+    </section>
+
+    <section class="projects-section" id="achievement">
+      <h2 class="projects-title" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5)">
+        <span style="color: gold">My</span> Coding Achievement &
+        <span style="color: gold">Certifications</span>
+      </h2>
+      <p class="projects-subtitle">
+        <code style="color: gold"
+          >"Code never lies, comments sometimes do."</code
+        >
+        <h1 style="color: gold; text-shadow: #2943b5;"><code>CODEING PROFILE</code></h1>
+      </p>
+      <div class="projects-grid">
+        <!-- Project Card 1 -->
+        <div class="project-card1">
+          <img
+            src="../assets/codechef.jpeg"
+            alt="Certification 1"
+            class="project-img"
+          />
+          <div class="project-links">
+            <a
+              href="https://www.codechef.com/users/gaurshourya1"
+              class="project-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >link</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card1">
+          <img
+            src="../assets/leetcode.webp"
+            alt="Certification 2"
+            class="project-img"
+          />
+          <div class="project-links">
+            <a href="https://leetcode.com/u/shouryag2/" class="project-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >link</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card1">
+          <img
+            src="../assets/gfg.jpg"
+            alt="Certification 3"
+            class="project-img"
+          />
+          <div class="project-links">
+            <a
+              href="https://www.geeksforgeeks.org/user/shourya3956/"
+              class="project-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >link</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card1">
+          <img
+            src="../assets/Coding_Ninjas_logo.jpeg"
+            alt="Certification 4"
+            class="project-img"
+          />
+          <div class="project-links">
+            <a
+              href="https://www.naukri.com/code360/profile/ShouryaGaur"
+              class="project-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >link</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="project-card1">
+          <img
+            src="../assets/hhk.jpg"
+            alt="Certification 4"
+            class="project-img"
+          />
+          <div class="project-links">
+            <a
+              href="https://www.hackerrank.com/profile/hakerrank01"
+              class="project-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >link</span
+              ></a
+            >
+          </div>
+        </div>
+
+
+      </div>
+      <h1 style="color: gold; font-size: larger; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">CERTIFICATIONS</h1>
+      <div class="certification-cards">
+        <div class="certification-card">
+          <img
+            src="../assets/css.png"
+            alt="AWS Certification"
+            class="cert-img"
+          />
+          <div class="cert-links">
+            <a
+              href="https://www.hackerrank.com/certificates/iframe/449976f9af0c"
+              class="cert-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >link</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="certification-card">
+          <img
+            src="../assets/js.png" 
+            alt="Google Cloud Certification"
+            class="cert-img"
+          />
+          <div class="cert-links">
+            <a
+              href="https://www.hackerrank.com/certificates/iframe/8fb94effb395"
+              class="cert-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >link</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="certification-card">
+          <img
+            src="../assets/GFGF_page-0001.jpg"
+            alt="Microsoft Azure Certification"
+            class="cert-img"
+          />
+          <div class="cert-links">
+            <a
+              href="https://www.geeksforgeeks.org/certificate/416a9d49839c5cc57eac13a4e6708fc9"
+              class="cert-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >link</span
+              ></a
+            >
+          </div>
+        </div>
+
+        <div class="certification-card">
+          <img
+            src="../assets/java.jpg"
+            alt="Cisco Certification"
+            class="cert-img"
+          />
+          <div class="cert-links">
+            <a
+              href="https://www.udemy.com/certificate/UC-dc0dfdf5-ebd5-46af-827c-3732536ae974/"
+              class="cert-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >link</span
+              ></a
+            >
+          </div>
+        </div>
+        <div class="certification-card">
+          <img
+            src="../assets/dsa.jpg"
+            alt="Cisco Certification"
+            class="cert-img"
+          />
+          <div class="cert-links">
+            <a
+              href="https://www.udemy.com/certificate/UC-dc0dfdf5-ebd5-46af-827c-3732536ae974/"
+              class="cert-link"
+              ><span
+                class="material-icons"
+                style="font-size: 20px; vertical-align: middle"
+                >link</span
+              ></a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="earth-section" id="contact">
+      <div class="stars-container" id="starsContainer"></div>
+      <div class="contact-section">
+        <span class="contact-label" style="color: gold; font-size: 20px;margin-top: 5px;font-style: bold;">GET IN TOUCH</span>
+        <h2 class="contact-title" style="margin-left: 5px;">Contact<span class="contact-dot">...</span></h2>
+        <form class="contact-form">
+          <label for="name" style="margin-left: 5px;">Your Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="What's your good name?"
+          />
+          <label for="email" style="margin-left: 5px;">Your email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="What's your web address?"
+          />
+          <label for="message" style="margin-left: 5px;">Your Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="What you want to say?"
+          ></textarea>
+          <button type="submit" class="contact-send-btn" style="margin-left: 5px;">Send</button>
+        </form>
+
+        <div class="contact-links">
+          <div class="contact-link">
+            <span class="material-icons">mail</span> shouryagaur1@gmail.com
+          </div>
+          <div class="contact-link">
+            <span class="material-icons">whatsapp</span> +91 9354145004
+          </div>
+        </div>
+      </div>
+      <!-- Lottie Player Script (only once in your HTML) -->
+      <script
+        src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+        type="module"
+      ></script>
+
+      <!-- Foreground Lottie -->
+      <dotlottie-player
+        src="https://lottie.host/793c6be3-253f-44a4-9cb0-8b7a0b475064/xXDiN7qreT.lottie"
+        background="transparent"
+        speed="2"
+        style="width: 700px; height: 700px; position: relative; z-index: 1"
+        loop
+        autoplay
+      >
+      </dotlottie-player>
+    </section>
+    <!-- Footer Section with Starfield Background -->
+    <div style="position: relative; background: #000; overflow: hidden">
+      <canvas
+        id="footer-starfield"
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+        "
+      ></canvas>
+      <footer
+        style="
+          position: relative;
+          z-index: 1;
+          background: transparent;
+          color: #fff;
+          text-align: center;
+          padding: 24px 0;
+          font-size: 1.1rem;
+          margin-top: 0;
+        "
+      >
+        <span
+          style="
+            font-family: monospace;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-shadow: 0 0 8px #a78bfa, 0 0 16px #ff4b7d;
+          "
+          >&lt;/&gt; with
+          <span
+            style="
+              color: #ff4b7d;
+              font-weight: bold;
+              text-shadow: 0 0 8px #ff4b7d;
+            "
+            >❤</span
+          >
+          by
+          <a
+            href="https://www.linkedin.com/in/shourya-gaur-37787b1b9/"
+            target="_blank"
+            style="
+              color: #a78bfa;
+              text-decoration: none;
+              font-weight: bold;
+              text-shadow: 0 0 8px #a78bfa;
+            "
+            >Shourya Gaur 😎</a
+          >
+          .</span
+        ><br />
+        <span
+          style="
+            color: #ff4b7d;
+            font-weight: bold;
+            text-shadow: 0 0 8px #ff4b7d, 0 0 16px #a78bfa;
+          "
+          >"Code is like humor—if you have to explain it, it's bad."</span
+        >
+      </footer>
+    </div>
+    <!-- End Footer Section with Starfield Background -->
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+    <script>
+      // 3D Logo Rendering
+      const container = document.getElementById("logo-3d-container");
+      const width = 48,
+        height = 48;
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 100);
+      camera.position.z = 2.5;
+      const renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true,
+      });
+      renderer.setSize(width, height);
+      renderer.setClearColor(0x000000, 0); // transparent background
+      container.appendChild(renderer.domElement);
+
+      // Lighting
+      const light = new THREE.DirectionalLight(0xffffff, 1);
+      light.position.set(0, 0, 2);
+      scene.add(light);
+
+      // Logo texture on a plane
+      const textureLoader = new THREE.TextureLoader();
+      textureLoader.load("../assets/logo.png", (texture) => {
+        const geometry = new THREE.PlaneGeometry(1.5, 1.5);
+        const material = new THREE.MeshPhongMaterial({
+          map: texture,
+          transparent: true,
+        });
+        const plane = new THREE.Mesh(geometry, material);
+        scene.add(plane);
+
+        // Animation loop
+        function animate() {
+          requestAnimationFrame(animate);
+          plane.rotation.y += 0.01;
+          renderer.render(scene, camera);
+        }
+        animate();
+      });
+
+      const logos = [
+        { id: "logo-work" },
+        { id: "logo-code" },
+        { id: "logo-mail" },
+        { id: "logo-download" },
+      ];
+      const logoData = {};
+      const iconSize = 64;
+      const margin = 10;
+      function randomVelocity() {
+        let v = (Math.random() * 2 + 1) * (Math.random() < 0.5 ? 1 : -1);
+        return v;
+      }
+      function randomPosition(axisMax) {
+        return Math.random() * (axisMax - iconSize - margin * 2) + margin;
+      }
+      function updateLogoPositions() {
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        logos.forEach(({ id }) => {
+          const el = document.getElementById(id);
+          if (!logoData[id]) {
+            logoData[id] = {
+              x: randomPosition(w),
+              y: randomPosition(h),
+              dx: randomVelocity(),
+              dy: randomVelocity(),
+              paused: false,
+            };
+            el.style.position = "fixed";
+            el.style.zIndex = 1000;
+            el.style.cursor = "pointer";
+            el.addEventListener("click", (e) => {
+              logoData[id].paused = !logoData[id].paused;
+              e.stopPropagation();
+            });
+          }
+        });
+      }
+      function animateLogos() {
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        logos.forEach(({ id }) => {
+          const el = document.getElementById(id);
+          const data = logoData[id];
+          if (!data.paused) {
+            data.x += data.dx;
+            data.y += data.dy;
+            // Bounce off edges
+            if (data.x < margin) {
+              data.x = margin;
+              data.dx *= -1;
+            }
+            if (data.x > w - iconSize - margin) {
+              data.x = w - iconSize - margin;
+              data.dx *= -1;
+            }
+            if (data.y < margin) {
+              data.y = margin;
+              data.dy *= -1;
+            }
+            if (data.y > h - iconSize - margin) {
+              data.y = h - iconSize - margin;
+              data.dy *= -1;
+            }
+          }
+          el.style.left = data.x + "px";
+          el.style.top = data.y + "px";
+        });
+        requestAnimationFrame(animateLogos);
+      }
+      window.addEventListener("resize", updateLogoPositions);
+      window.addEventListener("scroll", () => {}); // Movement is independent of scroll
+      updateLogoPositions();
+      requestAnimationFrame(animateLogos);
+    </script>
+    <script src="projects.js"></script>
+    <script>
+      // Add stars to the container
+      function createStars() {
+        const container = document.getElementById("starsContainer");
+        const starCount = 200; // Number of stars
+
+        for (let i = 0; i < starCount; i++) {
+          const star = document.createElement("div");
+          star.className = "star";
+
+          // Random position
+          star.style.left = `${Math.random() * 100}%`;
+          star.style.top = `${Math.random() * 100}%`;
+
+          // Random size between 1px and 3px
+          const size = Math.random() * 2 + 1;
+          star.style.width = `${size}px`;
+          star.style.height = `${size}px`;
+
+          // Random animation delay
+          star.style.animationDelay = `${Math.random() * 3}s`;
+
+          container.appendChild(star);
+        }
+      }
+
+      // Create stars when the page loads
+      window.addEventListener("load", createStars);
+    </script>
+    <script>
+      // Starfield for Footer
+      (function () {
+        const canvas = document.getElementById("footer-starfield");
+        if (!canvas) return;
+        function resize() {
+          canvas.width = canvas.offsetWidth;
+          canvas.height = canvas.offsetHeight;
+        }
+        resize();
+        window.addEventListener("resize", resize);
+        const ctx = canvas.getContext("2d");
+        const numStars = 100;
+        let stars = [];
+        for (let i = 0; i < numStars; i++) {
+          stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: Math.random() * 1.5 + 0.5,
+            o: Math.random(),
+          });
+        }
+        function drawStars() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          for (let star of stars) {
+            ctx.globalAlpha =
+              0.5 + 0.5 * Math.sin(Date.now() / 500 + star.o * 10);
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.r, 0, 2 * Math.PI);
+            ctx.fillStyle = "#fff";
+            ctx.fill();
+          }
+          ctx.globalAlpha = 1;
+          requestAnimationFrame(drawStars);
+        }
+        drawStars();
+      })();
+    </script>
+    <script>
+      function scrollToAchievement(event) {
+        event.preventDefault();
+        const achievementSection = document.getElementById('achievement');
+        achievementSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+
+      function scrollToAbout(event) {
+        event.preventDefault();
+        const aboutSection = document.getElementById('about');
+        aboutSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+
+      function scrollToWork(event) {
+        event.preventDefault();
+        const workSection = document.getElementById('work');
+        workSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+
+      function scrollToContact(event) {
+        event.preventDefault();
+        const contactSection = document.getElementById('contact');
+        contactSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    </script>
+    <script>
+      function toggleNavbar() {
+        const nav = document.querySelector('.navbar nav');
+        nav.classList.toggle('active');
+      }
+    </script>
+    <!-- Scroll-to-top Arrow Button -->
+    <button id="scrollArrow" style="display:none; position: fixed; bottom: 32px; right: 32px; z-index: 999; background: rgba(66,133,244,0.15); color: #fff; border: none; border-radius: 50%; width: 56px; height: 56px; box-shadow: 0 4px 24px 0 rgba(66,133,244,0.5), 0 2px 8px 0 rgba(0,0,0,0.18); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s, box-shadow 0.2s; font-size: 32px; backdrop-filter: blur(2px);">
+      <span class="material-icons" style="color: #fff; text-shadow: 0 2px 8px #4285f4, 0 1px 4px #000;">arrow_upward</span>
+    </button>
+    <script>
+      // Show arrow when scrolled past the first section
+      window.addEventListener('scroll', function() {
+        const aboutSection = document.getElementById('about');
+        const arrow = document.getElementById('scrollArrow');
+        if (!aboutSection || !arrow) return;
+        const rect = aboutSection.getBoundingClientRect();
+        if (rect.top <= 0) {
+          arrow.style.display = 'flex';
+        } else {
+          arrow.style.display = 'none';
+        }
+      });
+
+      // Scroll to top when arrow is clicked
+      document.getElementById('scrollArrow').onclick = function() {
+        // Slow smooth scroll to top
+        const scrollStep = () => {
+          if (window.scrollY > 0) {
+            window.scrollBy(0, -20);
+            requestAnimationFrame(scrollStep);
+          }
+        };
+        scrollStep();
+      };
+    </script>
+  </body>
+</html>
